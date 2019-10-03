@@ -17,4 +17,11 @@ public class InsertSort implements Sort {
         }
         array[i+1] = value;
     }
+
+    public static void main(String[] args) {
+        Integer[] array = new Integer[]{9,15,8,1,4,11};
+
+        InsertSort insertSort = new InsertSort();
+        insertSort.sort(array);
+    }
 }
