@@ -18,9 +18,12 @@ public class HeapSort implements Sort {
     }
 
     private void swap(Integer[] array, int pos1, int pos2) {
-        int temp = array[pos1];
-        array[pos1] = array[pos2];
-        array[pos2] = temp;
+        if ( (pos1 < pos2 && array[pos1] < array[pos2])
+                || (pos2 < pos1 && array[pos2] < array[pos1])) {
+            int temp = array[pos1];
+            array[pos1] = array[pos2];
+            array[pos2] = temp;
+        }
     }
 
     private void heapify(Integer[] array, int ind, int indByMax) {
@@ -30,12 +33,21 @@ public class HeapSort implements Sort {
 
         if (left < indByMax && array[left] > array[ind]) {
             largest = left;
-        } else if (right < indByMax && array[right] > array[largest]) {
+        }
+        if (right < indByMax && array[right] > array[largest]) {
             largest = right;
-        } else if (largest != ind) {
+        }
+        if (largest != ind) {
             swap(array, ind, largest);
             heapify(array, largest, indByMax);
         }
+    }
+
+    public static void main(String[] args) {
+        HeapSort heapSort = new HeapSort();
+        Integer[] array = new Integer[]{8, 11, 9, 2, 10, 16};
+        heapSort.sort(array);
+        System.out.println(array[0]);
     }
 
 }
