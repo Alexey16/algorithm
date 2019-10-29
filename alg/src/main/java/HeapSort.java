@@ -1,4 +1,4 @@
-package main.java.sortAlgorithm;
+package main.java;
 
 public class HeapSort implements Sort {
 
@@ -44,6 +44,10 @@ public class HeapSort implements Sort {
     }
 
     public static void main(String[] args) {
+
+        int i = 3 % 40;
+        System.out.println(i);
+
         HeapSort heapSort = new HeapSort();
         Integer[] array = new Integer[]{8, 11, 9, 2, 10, 16};
         heapSort.sort(array);
